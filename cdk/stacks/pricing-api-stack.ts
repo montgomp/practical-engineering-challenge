@@ -14,7 +14,7 @@ export class PricingApiStack extends cdk.Stack {
 
     // Lambda function for pricing API
     const pricingFunction = new lambda.Function(this, 'PricingFunction', {
-      runtime: lambda.Runtime.NODEJS_20_X, // NOTE: Should be updated to match Node.js 22
+      runtime: lambda.Runtime.NODEJS_20_X, // TODO: AWS CDK doesn't support Node.js 22 yet (as of 2024)
       handler: 'index.handler',
       code: lambda.Code.fromInline(`
         exports.handler = async (event) => {
