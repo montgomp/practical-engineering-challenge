@@ -10,5 +10,15 @@ describe('calculateDiscount', () => {
     expect(calculateDiscount(100, 0)).toBe(100);
   });
 
-  // TODO: Add test for edge cases (discount > 100, negative discounts)
+    it('should handle 100% discount', () => {
+    expect(calculateDiscount(100, 100)).toBe(0);
+  })
+
+  it('should treat negative discount as 0', () => {
+    expect(calculateDiscount(100, -25)).toBe(100);
+  })
+
+  it('should treat discount percentages over 100 to be 100', () => {
+    expect(calculateDiscount(100, 1000)).toBe(0);
+  })
 });
